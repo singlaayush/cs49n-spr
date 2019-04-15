@@ -22,14 +22,14 @@ check that your homework code is correct.
 
 After completing the lab you will:
 
-	1. Be able to check that your `gpio` code is equivalant to
-	everyone else's in the class by tracing all reads and writes
-	it does and comparing them to everyone else's implementation.
-	If even one person gets it right, then showing equivalance means
-	you got it right too.  And, nicely, automatically detect if any
-	subsequent modifications you do break the code.
+  1. Be able to check that your `gpio` code is equivalant to
+     everyone else's in the class by tracing all reads and writes
+	 it does and comparing them to everyone else's implementation.
+	 If even one person gets it right, then showing equivalance means
+	 you got it right too.  And, nicely, automatically detect if any
+	 subsequent modifications you do break the code.
 
-	2. Be able to quickly, correctly write a more full-featured
+   2. Be able to quickly, correctly write a more full-featured
 	`gpio` implementation by checking its equivalance against the
 	fairly complicated code used in the initial cs107e class.
 
@@ -45,12 +45,12 @@ much issue.
 
 #### Sign-off
 
-	1. Your `gpio_set_output`, `gpio_set_on`,
-	`gpio_set_off` give the same result as other peoples.  You can
-	run them in this order and just hash the end result.
+   1. Your `gpio_set_output`, `gpio_set_on`,
+   `gpio_set_off` give the same result as other peoples.  You can
+   run them in this order and just hash the end result.
 
-    2. Add an implementation and check for `gpio_set_input` and verify
-    you get the same result as everyone else.
+   2. Add an implementation and check for `gpio_set_input` and verify
+   you get the same result as everyone else.
 
 #### 0. Seperate out your gpio code from `blink.c`
 
@@ -60,6 +60,7 @@ As a small bonus, doing so will get you more familiar with Makefiles
 and header files, which will help your whole career.
 
 Mechanically:
+
   0. We are going to modify your Lab 0 code, so first copy the files in
      `0-blink/blink3` directory into `1-cross-check/blink`.
 
@@ -146,25 +147,21 @@ your `gpio` code works the same as everyone else.  Given the `get32` and
 `put32` modifications above, a simple, stringent approach is to check
 that two `gpio` implementations are the same:
 
-	1. They read and write the same addresses in the same order with
-	the same values.
-
-	2. They return the same result.    (For our implementations we
-	did not return any result, so this just means that your code
-	never crashes.)
+  1. They read and write the same addresses in the same order with
+  the same values.
+  2. They return the same result.    (For our implementations we
+  did not return any result, so this just means that your code
+  never crashes.)
 
 If both checks pass then we know that both implementations are equivalent
 --- at least for the tested inputs.
 
 For this section:
-	1. Uncomment out the rule for `test-gpio` in `Makefile` and run `make`.
+   1. Uncomment out the rule for `test-gpio` in `Makefile` and run `make`.
        This will compile the test harness `test-gpio.c`.
-
-    2. You can test each function individually by running `test-gpio 0`,
+   2. You can test each function individually by running `test-gpio 0`,
        `test-gpio 1`, etc.  (Look in the `test-gpio.c` file.)
-
-    3. Again compare the results to your partner and post to the newsgroup.
-
+   3. Again compare the results to your partner and post to the newsgroup.
 
 #### 4. Add `gpio_set_input` and cross-check it.
 
