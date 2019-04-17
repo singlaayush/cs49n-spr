@@ -30,7 +30,9 @@ void fancy_check(int N) {
 
         // child
         if(!pid) {
-            srandom(i);
+            while(i-->0)
+                random();
+            // srandom(i);
             notmain();
             fflush(stdout);
             exit(0);
@@ -55,13 +57,15 @@ int main(int argc, char *argv[]) {
         n = atoi(argv[1]);
 
     fake_timer_max_delta(55000);
+
+#if 0
+    srandom(49);
+    // make sure that everyone has the same random.
+    assert(89789692 == random());
+#endif
     if(n)
         fancy_check(n);
-    else {
-        srandom(49);
-        // make sure that everyone has the same random.
-        assert(89789692 == random());
+    else
         notmain();
-    }
     return 0;
 }

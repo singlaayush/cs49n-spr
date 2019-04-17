@@ -6,11 +6,16 @@
 
 #include "demand.h"
 
-#define trace(msg, args...) (printf)("FAKEPI:%s:" msg, __FUNCTION__, ##args)
+#define trace(msg, args...) (fprintf)(stderr, "FAKEPI:%s:" msg, __FUNCTION__, ##args)
 
 void notmain(void);
 
 void fake_gpio_set_bias(int n);
 void fake_timer_max_delta(unsigned delta);
+
+#define random bad_random
+
+// not very good random.
+unsigned short bad_random(void);
 
 #endif

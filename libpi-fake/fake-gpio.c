@@ -5,19 +5,25 @@
 #include <stdlib.h>
 #include "fake-pi.h"
 
-static int bias = 2;
+static unsigned bias = 2;
 
 // bias it more than 50/50.
 void fake_gpio_set_bias(int n) {
     bias = n + 2;
-    trace("bias==%d\n", bias);
+    trace("bias==%u\n", bias);
 }
 
 void gpio_write(unsigned pin, unsigned v) {
     trace("pin=%d, val=%d\n", pin, v);
 }
 unsigned gpio_read(unsigned pin) {
-    unsigned v= (random()%bias != 0);
+#if 1
+    unsigned val = random();
+    unsigned v = (val%bias != 0);
+#else
+    static unsigned val;
+    unsigned v= val++ & 1;
+#endif
     trace("pin=%d, returning=%d\n", pin, v);
     return v;
 }
