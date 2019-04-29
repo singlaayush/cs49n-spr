@@ -18,7 +18,7 @@ void gpio_write(unsigned pin, unsigned v) {
 }
 unsigned gpio_read(unsigned pin) {
 #if 1
-    unsigned val = random();
+    unsigned val = fake_random();
     unsigned v = (val%bias != 0);
 #else
     static unsigned val;
@@ -32,5 +32,10 @@ void gpio_set_output(unsigned pin) { trace("pin=%d\n", pin); }
 void gpio_set_pullup(unsigned pin) { trace("pin=%d\n", pin); }
 void gpio_set_pulldown(unsigned pin) { trace("pin=%d\n", pin); }
 
+
+void gpio_set_on(unsigned pin) { gpio_write(pin,1); }
+
+// turn <pin> off.
+void gpio_set_off(unsigned pin) { gpio_write(pin,0); }
 
 
